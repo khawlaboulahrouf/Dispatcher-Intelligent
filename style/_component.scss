@@ -1,0 +1,27 @@
+@use "variable";
+@mixin btnS-style{
+    background-color:variable.$colorbg;
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    border: 0;
+}
+@mixin btn-pageT{
+    background-color:antiquewhite;
+    border-radius: 20px;
+    padding: 10px;
+    color: black;
+    border: 0;
+}
+
+@mixin info-Con{
+    padding-inline: 20px;
+    padding-top: 4px;
+    margin: 10px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    p{
+        font-size: 20px;
+        color: white;
+    }
+}
