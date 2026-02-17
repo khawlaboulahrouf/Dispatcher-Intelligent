@@ -6,7 +6,7 @@ export function calculateTaskScore() {
     let result = document.getElementById("btnQWIZ");
     let score = 0 ;
     result.addEventListener("click", () => {
-        document.getElementById("QuizP").style.
+        document.getElementById("QuizP").style.display = "none";
         let questionresult = {
         question1 : parseInt(document.getElementById("qestion1").value) ,
         question2 : parseInt(document.getElementById("qestion2").value) ,
@@ -14,7 +14,40 @@ export function calculateTaskScore() {
     }
     score = questionresult.question1 + questionresult.question2 + questionresult.question3 ;
     })
+    let tasklist = loadtasks();
+    let finaltask = 0;
+    let hiestscore = 0
     
+    if(score > 11){
+        for(let i=0;i<tasklist.length;i++){
+            if(hiestscore < (tasklist[i].urgency+tasklist[i].importance)){
+                hiestscore = tasklist[i].urgency+tasklist[i].importance;
+                finaltask = tasklist[i] ;
+            }
+        }
+    }else if(score > 7){
+        for(let i=0;i<tasklist.length;i++){
+            if(hiestscore < (tasklist[i].importance + tasklist[i].urgency*0.3)){
+                hiestscore = tasklist[i].importance + tasklist[i].urgency*0.3;
+                finaltask = tasklist[i] ;
+            }
+        }
+    }else if(score > 4){
+        for(let i=0;i<tasklist.length;i++){
+            if(hiestscore < tasklist[i].urgency){
+                hiestscore = tasklist[i].urgency;
+                finaltask = tasklist[i] ;
+            }
+        }
+    }else {
+        for(let i=0;i<tasklist.length;i++){
+            if(hiestscore > tasklist[i].effort ){
+                hiestscore = tasklist[i].effort;
+                finaltask = tasklist[i];
+            }
+        }
+    }
+    return finaltask;
 }
 
 export function loadtasks(){
@@ -25,7 +58,6 @@ export function loadtasks(){
     //     urgency: 5,
     //     importance: 5,
     //     effort: 4,
-    //     createdAt: new Date(Date.now() - 86400000).toISOString() // 1 day ago
     // },
     // {
     //     id: "2",
