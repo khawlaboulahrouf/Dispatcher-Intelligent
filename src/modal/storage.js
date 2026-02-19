@@ -38,3 +38,6 @@ function deleteTask(id) {
   console.log("Task ${id} deleted.");
 }
 // addTask("hhhhh",2,3,4)
+
+localStorage.setItem("skippedTasks", JSON.stringify(skippedTasks));
+const skippedTasks = JSON.parse(localStorage.getItem("skippedTasks")) || [];
