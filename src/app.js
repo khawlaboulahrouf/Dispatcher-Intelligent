@@ -1,5 +1,5 @@
 import {QuizUI,DispalyTach,FomulaireAI} from "./modal/ui.js";
-// QuizUI()
+QuizUI()
 // let btn1=document.getElementById("btnQWIZ")
 // btn1.addEventListener("click",()=>{
 //     //mn lhna ila bgiti tjib les reponse dyal quiz
@@ -7,7 +7,7 @@ import {QuizUI,DispalyTach,FomulaireAI} from "./modal/ui.js";
 // document.getElementById("QuizP").style.display="none"
 // })
 
-
+isNaN(parseInt)
 // DispalyTach()
 
 // let ter=document.getElementById("btnTr")
