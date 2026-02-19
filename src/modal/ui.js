@@ -35,7 +35,7 @@ export function QuizUI(){
 }
 
 
-export function DispalyTach() {
+export function DispalyTach(finaltask) {
   let divP=document.createElement("div")
   divP.className="TaskPage"
   let h1=document.createElement("h1")
@@ -45,19 +45,19 @@ export function DispalyTach() {
   divb.className="Taskbody"
   divb.id="Taskbody"
   divb.innerHTML=`
-  <h1 id="nameTask">Finiliser Présentation Canva</h1>
+  <h1 id="nameTask">${finaltask.title}</h1>
   <div id="infoCont" style="display: flex; flex-direction: row">
     <div class="info">
     <i class="ri-alert-fill" style="color:red; font-size: 40px;"></i>
-      <p>3/5</p>
+      <p>${finaltask.urgency}/5</p>
     </div>
     <div class="info">
     <i class="ri-star-fill" style="color:purple; font-size: 40px;"></i>
-      <p>2/5</p>
+      <p>${finaltask.importance}/5</p>
     </div>
     <div class="info">
     <i class="ri-charging-pile-fill" style="color:green; font-size: 40px;"></i>
-      <p>2/5</p>
+      <p>${finaltask.effort}/5</p>
     </div>
   </div>
   <div class="btnBlock">
