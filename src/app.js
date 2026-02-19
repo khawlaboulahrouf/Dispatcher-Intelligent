@@ -7,7 +7,6 @@ QuizUI()
 // document.getElementById("QuizP").style.display="none"
 // })
 
-isNaN(parseInt)
 // DispalyTach()
 
 // let ter=document.getElementById("btnTr")
