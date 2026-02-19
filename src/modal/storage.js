@@ -7,7 +7,7 @@ function saveTasks(tasks) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-function addTask(title, urgency, important, effort) {
+export function addTask(title, urgency, important, effort) {
   const tasks = getTasks();
 
   const newTask = {
@@ -37,4 +37,4 @@ function deleteTask(id) {
   saveTasks(tasks);
   console.log("Task ${id} deleted.");
 }
-addTask("hhhhh",2,3,4)
+// addTask("hhhhh",2,3,4)
