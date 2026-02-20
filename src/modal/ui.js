@@ -1,6 +1,10 @@
 
 export function QuizUI(){
-    let divP=document.createElement("div")
+  let oldQuiz = document.getElementById("QuizP")
+if (oldQuiz) {
+    oldQuiz.remove()
+}
+   let divP=document.createElement("div")
     divP.id="QuizP"
     divP.className="QuizP"
     let divB=document.createElement("div")
@@ -36,7 +40,12 @@ export function QuizUI(){
 
 
 export function DispalyTach(finaltask) {
+  let oldTask = document.getElementById("TaskPage")
+if (oldTask) {
+    oldTask.remove()
+}
   let divP=document.createElement("div")
+  divP.id="TaskPage"
   divP.className="TaskPage"
   let h1=document.createElement("h1")
   h1.innerText="Mode Focus"
@@ -62,15 +71,17 @@ export function DispalyTach(finaltask) {
   </div>
   <div class="btnBlock">
     <button id="btnTr">TERMINE</button>
-    <button id="btnps">PASSER</button>
+    <button id="btnps">Ajouter</button>
   </div>
   `
   divP.appendChild(divb)
   document.body.appendChild(divP)
 }
-
-
 export function FomulaireAI() {
+  let oldForm = document.getElementById("formPage")
+if (oldForm) {
+    oldForm.remove()
+}
   let divP=document.createElement("div")
   divP.className="formPage"
   divP.id="formPage"
