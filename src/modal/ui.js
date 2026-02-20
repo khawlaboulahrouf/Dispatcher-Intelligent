@@ -62,7 +62,7 @@ if (oldTask) {
     </div>
     <div class="info">
     <i class="ri-star-fill" style="color:purple; font-size: 40px;"></i>
-      <p>${finaltask.importance}/5</p>
+      <p>${finaltask.important}/5</p>
     </div>
     <div class="info">
     <i class="ri-charging-pile-fill" style="color:green; font-size: 40px;"></i>
