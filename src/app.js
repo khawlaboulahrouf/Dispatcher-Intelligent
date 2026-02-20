@@ -3,7 +3,9 @@ import { calculateTaskScore } from "./modal/sorter.js";
 import { Validation } from "./modal/validation.js";
 import { addTask } from "./modal/storage.js";
 QuizUI();
-DispalyTach(calculateTaskScore());
+let final = calculateTaskScore()
+console.log(final)
+DispalyTach(final);
 attachAjouterEvent();
 function attachAjouterEvent() {
     let Ajouter = document.getElementById("btnps");

@@ -60,32 +60,21 @@ import {displayTasks,getTasks} from "./storage.js"
 
 
 // begin
-
 export function calculateTaskScore() {
-    // Get the quiz button and add event listener
+
     let result = document.getElementById("btnQWIZ");
-    let score = 0;
-    
+    let score = 0 ;
     result.addEventListener("click", () => {
         document.getElementById("QuizP").style.display = "none";
-        
         let questionresult = {
-            question1: parseInt(document.getElementById("qestion1").value),
-            question2: parseInt(document.getElementById("qestion2").value),
-            question3: parseInt(document.getElementById("qestion3").value),
-        }
-        
-        score = questionresult.question1 + questionresult.question2 + questionresult.question3;
-        
-        // Now find and display the best task
-        let bestTask = findBestTask(score);
-        console.log("Best task:", bestTask);
-        return bestTask;
-    });
-}
+        question1 : parseInt(document.getElementById("qestion1").value) ,
+        question2 : parseInt(document.getElementById("qestion2").value) ,
+        question3 : parseInt(document.getElementById("qestion3").value) ,
+    }
+    score = questionresult.question1 + questionresult.question2 + questionresult.question3 ;
+    })
 
-function findBestTask(score) {
-    let tasklist0 = getTasks();
+    let tasklist0 = getTasks()
     let tasklist = [];
     
     // Filter tasks based on energy score
@@ -136,5 +125,4 @@ function findBestTask(score) {
     
     return finaltask;
 }
-
 // fin
