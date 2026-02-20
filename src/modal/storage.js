@@ -1,5 +1,5 @@
 import{mockTasks} from"../data/mocktask.js"
-function getTasks() {
+export function getTasks() {
   const data = localStorage.getItem("tasks");
   return data ? JSON.parse(data) : [];
 }
