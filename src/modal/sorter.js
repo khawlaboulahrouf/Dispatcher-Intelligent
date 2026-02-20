@@ -14,7 +14,13 @@ export function calculateTaskScore() {
     }
     score = questionresult.question1 + questionresult.question2 + questionresult.question3 ;
     })
-    let tasklist = loadtasks();
+    let tasklist0 = loadtasks();
+    let tasklist = [];
+    for(let i=0;i<tasklist0.length;i++){
+        if(score > tasklist0[i]*3 ){
+            tasklist.push(tasklist0[i])
+        }
+    }
     let finaltask = 0;
     let hiestscore = 0
     
