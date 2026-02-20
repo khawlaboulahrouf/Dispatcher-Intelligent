@@ -1,3 +1,4 @@
+import{mockTasks} from"../data/mocktask.js"
 function getTasks() {
   const data = localStorage.getItem("tasks");
   return data ? JSON.parse(data) : [];
@@ -23,7 +24,7 @@ export function addTask(title, urgency, important, effort) {
   console.log("Task added:", newTask);
 }
 
-function displayTasks() {
+export function displayTasks() {
   const tasks = getTasks();
   console.log("All tasks:", tasks);
   return tasks;
@@ -37,7 +38,5 @@ function deleteTask(id) {
   saveTasks(tasks);
   console.log("Task ${id} deleted.");
 }
-// addTask("hhhhh",2,3,4)
 
-localStorage.setItem("skippedTasks", JSON.stringify(skippedTasks));
-const skippedTasks = JSON.parse(localStorage.getItem("skippedTasks")) || [];
+// saveTasks(mockTasks)

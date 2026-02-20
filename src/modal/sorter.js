@@ -1,8 +1,9 @@
 // NO CLASSES - just simple functions!
+import {displayTasks} from "./storage.js"
 
 // Calculate how important a task is (returns score from 0-10)
 export function calculateTaskScore() {
-    // Start with urgency + importance (each 1-5, so total 2-10)
+    // Start with urgency + important (each 1-5, so total 2-10)
     let result = document.getElementById("btnQWIZ");
     let score = 0 ;
     result.addEventListener("click", () => {
@@ -10,8 +11,9 @@ export function calculateTaskScore() {
         let questionresult = {
         question1 : parseInt(document.getElementById("qestion1").value) ,
         question2 : parseInt(document.getElementById("qestion2").value) ,
-        question3 : parseInt(document.getElementById("qestion3").value) 
+        question3 : parseInt(document.getElementById("qestion3").value) ,
     }
+    console.log("hello word")
     score = questionresult.question1 + questionresult.question2 + questionresult.question3 ;
     })
     let tasklist0 = loadtasks();
@@ -54,26 +56,4 @@ export function calculateTaskScore() {
         }
     }
     return finaltask;
-}
-
-export function loadtasks(){
-    // localStorage.setItem('antiSaturator_tasks', JSON.stringify([
-    // {
-    //     id: "1",
-    //     title: "Préparer présentation réunion",
-    //     urgency: 5,
-    //     importance: 5,
-    //     effort: 4,
-    // },
-    // {
-    //     id: "2",
-    //     title: "Répondre emails clients",
-    //     urgency: 4,
-    //     importance: 3,
-    //     effort: 2,
-    //     createdAt: new Date(Date.now() - 172800000).toISOString() // 2 days ago
-    // }]));
-    let list = JSON.parse(localStorage.getItem('antiSaturator_tasks'));
-    return list;
-
 }
