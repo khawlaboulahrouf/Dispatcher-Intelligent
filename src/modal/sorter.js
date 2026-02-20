@@ -26,15 +26,15 @@ export function calculateTaskScore() {
     
     if(score > 11){
         for(let i=0;i<tasklist.length;i++){
-            if(hiestscore < (tasklist[i].urgency+tasklist[i].importance)){
-                hiestscore = tasklist[i].urgency+tasklist[i].importance;
+            if(hiestscore < (tasklist[i].urgency+tasklist[i].important)){
+                hiestscore = tasklist[i].urgency+tasklist[i].important;
                 finaltask = tasklist[i] ;
             }
         }
     }else if(score > 7){
         for(let i=0;i<tasklist.length;i++){
-            if(hiestscore < (tasklist[i].importance + tasklist[i].urgency*0.3)){
-                hiestscore = tasklist[i].importance + tasklist[i].urgency*0.3;
+            if(hiestscore < (tasklist[i].important + tasklist[i].urgency*0.3)){
+                hiestscore = tasklist[i].important + tasklist[i].urgency*0.3;
                 finaltask = tasklist[i] ;
             }
         }
