@@ -1,59 +1,44 @@
-// NO CLASSES - just simple functions!
-import {displayTasks} from "./storage.js"
+import { getTasks } from "./storage.js";
 
-// Calculate how important a task is (returns score from 0-10)
-export function calculateTaskScore() {
-    // Start with urgency + important (each 1-5, so total 2-10)
-    let result = document.getElementById("btnQWIZ");
-    let score = 0 ;
-    result.addEventListener("click", () => {
-        document.getElementById("QuizP").style.display = "none";
-        let questionresult = {
-        question1 : parseInt(document.getElementById("qestion1").value) ,
-        question2 : parseInt(document.getElementById("qestion2").value) ,
-        question3 : parseInt(document.getElementById("qestion3").value) ,
-    }
-    console.log("hello word")
-    score = questionresult.question1 + questionresult.question2 + questionresult.question3 ;
-    })
-    let tasklist0 = loadtasks();
-    let tasklist = [];
-    for(let i=0;i<tasklist0.length;i++){
-        if(score > tasklist0[i]*3 ){
-            tasklist.push(tasklist0[i])
-        }
-    }
-    let finaltask = 0;
-    let hiestscore = 0
-    
-    if(score > 11){
-        for(let i=0;i<tasklist.length;i++){
-            if(hiestscore < (tasklist[i].urgency+tasklist[i].important)){
-                hiestscore = tasklist[i].urgency+tasklist[i].important;
-                finaltask = tasklist[i] ;
-            }
-        }
-    }else if(score > 7){
-        for(let i=0;i<tasklist.length;i++){
-            if(hiestscore < (tasklist[i].important + tasklist[i].urgency*0.3)){
-                hiestscore = tasklist[i].important + tasklist[i].urgency*0.3;
-                finaltask = tasklist[i] ;
-            }
-        }
-    }else if(score > 4){
-        for(let i=0;i<tasklist.length;i++){
-            if(hiestscore < tasklist[i].urgency){
-                hiestscore = tasklist[i].urgency;
-                finaltask = tasklist[i] ;
-            }
-        }
-    }else {
-        for(let i=0;i<tasklist.length;i++){
-            if(hiestscore > tasklist[i].effort ){
-                hiestscore = tasklist[i].effort;
-                finaltask = tasklist[i];
-            }
-        }
-    }
-    return finaltask;
+/**
+ * Returns tasks sorted by priority given user energy (0-15, sum of 3 quiz sliders).
+ * High energy: prefer urgency + importance.
+ * Low energy: prefer low effort.
+ */
+export function getSortedTasks(energy) {
+  const tasks = getTasks();
+  if (!tasks.length) return [];
+
+  const e = Number(energy) || 0;
+
+  return [...tasks].sort((a, b) => {
+    const scoreA = weightedScore(a, e);
+    const scoreB = weightedScore(b, e);
+    return scoreB - scoreA;
+  });
+}
+
+function weightedScore(task, energy) {
+  const u = Number(task.urgency) || 0;
+  const i = Number(task.important) || 0;
+  const eff = Number(task.effort) || 0;
+
+  if (energy > 11) {
+    return u + i;
+  }
+  if (energy > 7) {
+    return i + u * 0.3;
+  }
+  if (energy > 4) {
+    return u;
+  }
+  return 5 - eff;
+}
+
+/**
+ * Returns the best task to show in focus mode, excluding skipped ids.
+ */
+export function getBestTask(energy, skippedIds = new Set()) {
+  const sorted = getSortedTasks(energy);
+  return sorted.find((t) => !skippedIds.has(t.id)) || null;
 }

@@ -1,0 +1,47 @@
+@use "variable" as v;
+
+// Container style générique
+@mixin container-style {
+  background-color: v.$container;
+  border-radius: v.$radius;
+  padding: 16px;
+  color: v.$textDark;
+}
+
+// Bouton générique
+@mixin button-style($padding-vertical: 14px, $padding-horizontal: 24px) {
+  background-color: v.$buttonBeige;
+  border-radius: v.$radius;
+  padding: $padding-vertical $padding-horizontal;
+  color: v.$textOnButton;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: v.$buttonHover;
+  }
+}
+
+// Fade-in animation
+@mixin fade-in($duration: 0.3s) {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn $duration forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Hover scale
+@mixin hover-scale($scale: 1.05, $duration: 0.2s) {
+  transition: transform $duration ease;
+  &:hover {
+    transform: scale($scale);
+  }
+}

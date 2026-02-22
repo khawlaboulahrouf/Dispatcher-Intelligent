@@ -1,27 +1,51 @@
-@use "variable";
-@mixin btnS-style{
-    background-color:variable.$colorbg;
-    border-radius: 20px;
-    padding: 20px;
-    color: white;
-    border: 0;
-}
-@mixin btn-pageT{
-    background-color:antiquewhite;
-    border-radius: 20px;
-    padding: 10px;
-    color: black;
-    border: 0;
+@use "variable" as v;
+
+// Bouton standard
+@mixin btnS-style {
+  background-color: v.$buttonBeige;
+  border-radius: v.$radius;
+  padding: 14px 24px;
+  color: v.$textOnButton;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  &:hover {
+    background-color: v.$buttonHover;
+  }
 }
 
-@mixin info-Con{
-    padding-inline: 20px;
-    padding-top: 4px;
-    margin: 10px;
-    border-radius: 20px;
-    margin-bottom: 30px;
-    p{
-        font-size: 20px;
-        color: white;
-    }
+// Bouton page T
+@mixin btn-pageT {
+  background-color: v.$buttonBeige;
+  border-radius: v.$radius;
+  padding: 12px 20px;
+  color: v.$textOnButton;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  &:hover {
+    background-color: v.$buttonHover;
+  }
+}
+
+// Info container
+@mixin info-Con {
+  padding-inline: 16px;
+  padding-top: 4px;
+  margin: 8px;
+  border-radius: v.$radiusSmall;
+
+  p {
+    font-size: 1.1rem;
+    color: v.$textDark;
+    margin: 0;
+  }
+
+  .emoji {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-right: 4px;
+  }
 }

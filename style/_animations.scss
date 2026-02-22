@@ -1,0 +1,13 @@
+@use "variable" as v;
+
+// Animations simples pour boutons et containers
+@import "mixins";
+
+.button-fade {
+  @include fade-in(0.4s);
+  @include hover-scale(1.03, 0.2s);
+}
+
+.container-fade {
+  @include fade-in(0.5s);
+}
