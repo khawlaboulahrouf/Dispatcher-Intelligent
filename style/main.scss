@@ -20,6 +20,12 @@ body {
   align-items: center;
   padding: 24px;
   box-sizing: border-box;
+
+  .page-title {
+    margin: 0 0 16px;
+    font-size: 1.75rem;
+    color: v.$textDark;
+  }
 }
 
 .QuizB {
@@ -87,6 +93,18 @@ body {
     font-size: 1.35rem;
     line-height: 1.3;
     color: v.$textDark;
+  }
+
+  .no-tasks-title {
+    margin: 0 0 8px;
+    font-size: 1.25rem;
+    color: v.$textDark;
+  }
+
+  .no-tasks-text {
+    margin: 0 0 20px;
+    color: v.$textDark;
+    opacity: 0.9;
   }
 
   .infoCont {

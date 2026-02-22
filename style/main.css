@@ -1,92 +1,240 @@
 body {
-  background-color: #242736;
-  overflow: hidden;
+  background-color: #f2e6dc;
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #2d2d2d;
 }
 
-.QuizP, .TaskPage {
-  height: 100vh;
-  width: 100vw;
+.QuizP,
+.TaskPage {
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.TaskPage .page-title {
+  margin: 0 0 16px;
+  font-size: 1.75rem;
+  color: #2d2d2d;
 }
 
 .QuizB {
   text-align: center;
-  background-color: white;
-  border-radius: 30px;
-  box-shadow: 9px 6px 12px -3px white;
-  padding: 30px;
+  background-color: #84a59d;
+  border-radius: 24px;
+  padding: 32px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-.QuizB .qes input {
-  padding-block: 10px;
-  width: 250px;
+
+.QuizB h1 {
+  margin: 0 0 24px;
+  font-size: 1.75rem;
+  color: #2d2d2d;
 }
+
+.QuizB .qes {
+  margin-bottom: 20px;
+}
+
+.QuizB .qes label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #2d2d2d;
+  text-align: left;
+}
+
+.QuizB .qes input[type="range"] {
+  width: 100%;
+  max-width: 280px;
+  height: 8px;
+  accent-color: #c4a77d;
+}
+
+.QuizB .qes .slider-value {
+  display: inline-block;
+  min-width: 1.5em;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
 .QuizB .qes p {
-  margin-top: 0px;
+  margin: 0;
 }
+
 .QuizB .btnQWIZ {
-  background-color: #242736;
-  border-radius: 20px;
-  padding: 20px;
-  color: white;
+  background-color: #ffe8d6;
+  border-radius: 16px;
+  padding: 14px 24px;
+  color: #2d2d2d;
   border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  margin-top: 16px;
+}
+
+.QuizB .btnQWIZ:hover {
+  background-color: #f5dcc8;
 }
 
 .Taskbody {
-  border: 1px solid aqua;
-  border-radius: 20px;
-  height: 400px;
-  padding-inline: 20px;
+  background-color: #84a59d;
+  border-radius: 24px;
+  padding: 28px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
-.info {
-  padding-inline: 20px;
+.Taskbody #nameTask {
+  margin: 0 0 20px;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: #2d2d2d;
+}
+
+.Taskbody .no-tasks-title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  color: #2d2d2d;
+}
+
+.Taskbody .no-tasks-text {
+  margin: 0 0 20px;
+  color: #2d2d2d;
+  opacity: 0.9;
+}
+
+.Taskbody .infoCont {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.Taskbody .info {
+  padding-inline: 16px;
   padding-top: 4px;
-  margin: 10px;
-  border-radius: 20px;
-  margin-bottom: 30px;
-}
-.info p {
-  font-size: 20px;
-  color: white;
+  margin: 8px;
+  border-radius: 12px;
 }
 
-.btnBlock button {
-  background-color: antiquewhite;
-  border-radius: 20px;
-  padding: 10px;
-  color: black;
+.Taskbody .info p {
+  font-size: 1.1rem;
+  color: #2d2d2d;
+  margin: 0;
+}
+
+.Taskbody .info .emoji {
+  font-size: 1.5rem;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.Taskbody .btnBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.Taskbody .btnBlock button {
+  background-color: #ffe8d6;
+  border-radius: 16px;
+  padding: 12px 20px;
+  color: #2d2d2d;
   border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.Taskbody .btnBlock button:hover {
+  background-color: #f5dcc8;
 }
 
 .formPage {
-  margin-top: 70px;
-  height: 70vh;
-  background-color: white;
-  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  padding: 32px;
+  background-color: #84a59d;
+  border-radius: 24px;
+  max-width: 380px;
+  width: calc(100% - 48px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
+
+.formPage h1 {
+  margin: 0 0 24px;
+  font-size: 1.75rem;
+  color: #2d2d2d;
+}
+
 .formPage input {
-  padding: 15px;
-  background-color: #242736;
-  border: 0px;
-  border-radius: 20px;
-  color: white;
-}
-.formPage button {
-  background-color: #242736;
-  border-radius: 20px;
-  padding: 20px;
-  color: white;
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 14px;
+  padding: 14px 18px;
+  background-color: #ffe8d6;
   border: 0;
-}/*# sourceMappingURL=main.css.map */
+  border-radius: 16px;
+  color: #2d2d2d;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.formPage input::placeholder {
+  color: rgba(45, 45, 45, 0.6);
+}
+
+.formPage button {
+  background-color: #ffe8d6;
+  border-radius: 16px;
+  padding: 14px 24px;
+  color: #2d2d2d;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  margin-top: 8px;
+}
+
+.formPage button:hover {
+  background-color: #f5dcc8;
+}
+
+@media (max-width: 480px) {
+  .QuizB,
+  .Taskbody {
+    padding: 20px;
+  }
+  .Taskbody .btnBlock {
+    flex-direction: column;
+    width: 100%;
+  }
+  .Taskbody .btnBlock button {
+    width: 100%;
+  }
+}
